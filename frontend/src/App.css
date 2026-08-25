@@ -1,0 +1,46 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.home p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #6b7280;
+}
+
+.upload-box {
+  width: 500px;
+  padding: 40px;
+  background: white;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+}
+
+.upload-box h2 {
+  margin-bottom: 25px;
+}
+
+.upload-box input {
+  display: block;
+  margin: 0 auto 25px;
+}
+
+.upload-box button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+}

@@ -1,25 +1,32 @@
+import Navbar from "../components/Navbar";
+
 function Home() {
   return (
-    <div className="home">
-      <h1>AI Resume Job Matcher</h1>
+    <>
+      <Navbar />
 
-      <p>
-        Upload your resume and discover jobs that match your skills.
-      </p>
+      <main className="home">
+        <h1>AI Resume Job Matcher</h1>
 
-      <div className="upload-box">
-        <h2>Upload Your Resume</h2>
+        <p>
+          Upload your resume and discover jobs
+          that match your skills.
+        </p>
 
-        <input
-          type="file"
-          accept=".pdf"
-        />
+        <div className="upload-box">
+          <h2>Upload Your Resume</h2>
 
-        <button>
-          Analyze Resume
-        </button>
-      </div>
-    </div>
+          <input
+            type="file"
+            accept=".pdf,application/pdf"
+          />
+
+          <button>
+            Analyze Resume
+          </button>
+        </div>
+      </main>
+    </>
   );
 }
 

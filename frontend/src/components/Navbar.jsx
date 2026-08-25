@@ -1,13 +1,15 @@
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="logo">
-        AI Resume Matcher
-      </div>
+      <div className="navbar-container">
+        <div className="logo">
+          AI Resume Matcher
+        </div>
 
-      <div className="nav-links">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
+        <div className="nav-links">
+          <a href="/">Home</a>
+          <a href="#about">About</a>
+        </div>
       </div>
     </nav>
   );

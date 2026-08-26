@@ -3,6 +3,7 @@ from app.pdf_extractor import extract_text_from_pdf
 # from pydantic import BaseModel
 from app.analyzer import analyze_resume
 from fastapi.middleware.cors import CORSMiddleware
+from app.matcher import match_resume_to_jobs
 
 app = FastAPI(
     title=" AI Resume Job Matcher API "
@@ -43,3 +44,21 @@ async def analyze_resume_endpoint(
         "filename" : file.filename,
         "profile" : result.model_dump()
     }
+
+@app.post("/match-jobs")
+async def match_jobs(resume_data: dict):
+    try:
+        profile = resume_data.get("profile")
+        if not profile:
+            raise HTTPException(status_code=400, detail="Missing 'profile' in request body.")
+
+        matches = match_resume_to_jobs(profile)
+
+        return {
+            "matches": matches
+        }
+
+    except Exception as e:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

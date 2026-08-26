@@ -1,3 +1,5 @@
+import JobCard from "../components/JobCard";
+
 function Results({ data }) {
   if (!data) {
     return (
@@ -12,6 +14,7 @@ function Results({ data }) {
   return (
     <section className="results">
       <h2>Resume Analysis</h2>
+
 
       <div className="profile-card">
         <h3>Personal Information</h3>
@@ -31,6 +34,7 @@ function Results({ data }) {
           {profile?.phone || "Not available"}
         </p>
       </div>
+
 
       <div className="profile-card">
         <h3>Skills</h3>
@@ -53,6 +57,7 @@ function Results({ data }) {
         )}
       </div>
 
+
       <div className="profile-card">
         <h3>Education</h3>
 
@@ -70,6 +75,7 @@ function Results({ data }) {
           <p>No education information found.</p>
         )}
       </div>
+
 
       <div className="profile-card">
         <h3>Experience</h3>
@@ -105,6 +111,7 @@ function Results({ data }) {
         )}
       </div>
 
+
       <div className="profile-card">
         <h3>Projects</h3>
 
@@ -134,6 +141,7 @@ function Results({ data }) {
         )}
       </div>
 
+
       <div className="profile-card">
         <h3>Certifications</h3>
 
@@ -151,6 +159,45 @@ function Results({ data }) {
           <p>No certifications found.</p>
         )}
       </div>
+
+
+
+      {/* ==============================
+          JOB MATCHING SECTION
+      =============================== */}
+
+      <div className="profile-card">
+
+        <h3>
+          JOB MATCHING FOR YOUR RESUME
+        </h3>
+
+
+        {
+          data.matches?.length > 0 ? (
+
+            data.matches.map(
+              (job, index) => (
+                <JobCard
+                  key={index}
+                  job={job}
+                />
+              )
+            )
+
+          )
+          :
+          (
+            <p>
+              No job matches found.
+            </p>
+          )
+        }
+
+
+      </div>
+
+
     </section>
   );
 }

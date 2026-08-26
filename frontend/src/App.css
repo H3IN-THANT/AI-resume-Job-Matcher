@@ -179,3 +179,327 @@
 .project-item:last-child {
   border-bottom: none;
 }
+/* =========================
+   JOB MATCHING SECTION
+========================= */
+
+
+.job-card {
+
+  background: white;
+
+  padding: 30px;
+
+  margin-top: 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+  0 8px 20px rgba(0,0,0,0.05);
+
+}
+
+
+
+.job-header h2 {
+
+  font-size: 24px;
+
+  margin-bottom: 8px;
+
+  color:#111827;
+
+}
+
+
+
+.job-info {
+
+  color:#6b7280;
+
+  font-size:15px;
+
+}
+
+
+
+
+.match-section {
+
+  text-align:center;
+
+  margin:25px 0;
+
+}
+
+
+
+.match-section h1 {
+
+  font-size:48px;
+
+  margin:0;
+
+  color:#2563eb;
+
+}
+
+
+
+.match-section span {
+
+  font-weight:700;
+
+  color:#16a34a;
+
+  font-size:18px;
+
+}
+
+
+
+
+.score-container {
+
+  width:100%;
+
+  height:12px;
+
+  background:#e5e7eb;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  margin-bottom:25px;
+
+}
+
+
+
+.score-progress {
+
+  height:100%;
+
+  background:#2563eb;
+
+  border-radius:20px;
+
+}
+
+
+
+
+.skills-section h4 {
+
+  margin-bottom:12px;
+
+}
+
+
+
+.job-skills {
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+}
+
+
+
+.job-skills .skill {
+
+  padding:8px 14px;
+
+  background:#eff6ff;
+
+  color:#1d4ed8;
+
+  border-radius:20px;
+
+  font-size:14px;
+
+  font-weight:600;
+
+}
+
+
+
+
+.missing-box {
+
+  margin-top:20px;
+
+  padding:12px;
+
+  background:#fef2f2;
+
+  color:#dc2626;
+
+  border-radius:10px;
+
+  font-weight:600;
+
+}
+
+
+
+
+.match-button {
+
+  margin-top:25px;
+
+  padding:12px 24px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#111827;
+
+  color:white;
+
+  font-size:15px;
+
+  cursor:pointer;
+
+}
+
+
+
+.match-button:hover {
+
+  background:#2563eb;
+
+}
+/* Job Card */
+
+.job-card {
+
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+
+}
+
+
+.job-header h2 {
+
+  font-size: 24px;
+  margin-bottom: 8px;
+
+}
+
+
+.job-info {
+
+  color: #6b7280;
+
+}
+
+
+
+.match-section {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 25px 0;
+
+}
+
+
+.match-section h1 {
+
+  font-size: 48px;
+  margin: 0;
+  color: #2563eb;
+
+}
+
+
+.match-section span {
+
+  font-size: 18px;
+  font-weight: 700;
+  color: #16a34a;
+
+}
+
+
+
+.score-container {
+
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
+
+
+.score-progress {
+
+  height: 100%;
+  background: #2563eb;
+  border-radius: 10px;
+
+}
+
+
+
+.skills-section {
+
+  margin-top: 25px;
+
+}
+
+
+.job-skills {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+
+
+
+.missing-box {
+
+  margin-top: 20px;
+  padding: 12px;
+  background: #fff7ed;
+  color: #c2410c;
+  border-radius: 8px;
+
+}
+
+
+
+.match-button {
+
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+
+}
+
+
+.match-button:hover {
+
+  opacity: 0.85;
+
+}

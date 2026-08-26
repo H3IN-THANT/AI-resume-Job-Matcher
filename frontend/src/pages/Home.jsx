@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import UploadBox from "../components/UploadBox";
-import Results from "./Results";
 
 import { analyzeResume } from "../services/api";
 
 function Home() {
+  const navigate = useNavigate();
+
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
   const handleAnalyze = async (file) => {
@@ -18,7 +19,13 @@ function Home() {
 
       const data = await analyzeResume(file);
 
-      setResult(data);
+      console.log("BACKEND RESPONSE:", data);
+
+      navigate("/results", {
+        state: {
+          data: data,
+        },
+      });
     } catch (error) {
       console.error(error);
 
@@ -36,9 +43,7 @@ function Home() {
 
       <main className="home">
         <section className="hero">
-          <h1>
-            AI Resume Job Matcher
-          </h1>
+          <h1>AI Resume Job Matcher</h1>
 
           <p>
             Upload your resume and discover
@@ -56,10 +61,6 @@ function Home() {
             </p>
           )}
         </section>
-
-        {result && (
-          <Results data={result} />
-        )}
       </main>
     </>
   );

@@ -1,4 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { matchJobs } from "../services/api";
+import { useState } from "react";
 
 function Results() {
   const location = useLocation();
@@ -7,6 +9,35 @@ function Results() {
   const data = location.state?.data;
 
   console.log("RESULTS COMPONENT DATA:", data);
+
+  const [matching, setMatching] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleFindJobs = async () => {
+    try {
+      setMatching(true);
+      setError("");
+
+      const jobData = await matchJobs(data);
+
+      console.log("MATCHED JOBS:", jobData);
+      console.log("IS ARRAY:", Array.isArray(jobData));
+
+      navigate("/job-matches", {
+        state: {
+          resume: data,
+          jobs: jobData,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+      setError(
+        "Unable to find matching jobs. Please try again."
+      );
+    } finally {
+      setMatching(false);
+    }
+  };
 
   if (!data) {
     return (
@@ -52,12 +83,24 @@ function Results() {
           </p>
         </div>
 
-        <button
-          className="back-home-btn"
-          onClick={() => navigate("/")}
-        >
-          ← Analyze Another Resume
-        </button>
+        <div className="results-actions">
+          <button className="find-jobs-button"  onClick={handleFindJobs}
+            disabled={matching}>
+
+             {matching
+              ? "Finding Matching Jobs..."
+              : "Find Matching Jobs →"}
+          </button>
+          {error && (
+          <p className="error">
+            {error}
+          </p>
+        )}
+
+          <button className="back-home-btn" onClick={() => navigate("/")}>
+            ← Analyze Another Resume
+          </button>
+        </div>
 
       </div>
 
@@ -422,8 +465,8 @@ function Results() {
 
         )}
 
-      </section>
 
+      </section>
 
       {/* =====================================
           FOOTER ACTION

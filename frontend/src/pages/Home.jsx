@@ -17,13 +17,15 @@ function Home() {
       setLoading(true);
       setError("");
 
-      const data = await analyzeResume(file);
+      // 1. Analyze resume
+      const resumeData = await analyzeResume(file);
 
-      console.log("BACKEND RESPONSE:", data);
+      console.log("BACKEND RESPONSE:", resumeData);
 
+      // 2. Go to Results page
       navigate("/results", {
         state: {
-          data: data,
+          data: resumeData,
         },
       });
     } catch (error) {
@@ -43,7 +45,7 @@ function Home() {
 
       <main className="home">
         <section className="hero">
-          <h1>AI Resume Job Matcher</h1>
+          <h1>AI Resume Analyzer & Job Matcher</h1>
 
           <p>
             Upload your resume and discover

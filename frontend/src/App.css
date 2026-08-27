@@ -503,3 +503,1598 @@
   opacity: 0.85;
 
 }
+/* =========================================
+   UI / UX POLISH
+   ========================================= */
+
+/* Page */
+.home {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+
+/* Results */
+.results {
+  max-width: 1050px;
+  margin: 40px auto;
+}
+
+.results > h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+
+/* Profile Cards */
+.profile-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.profile-card h3 {
+  font-size: 21px;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+
+/* Skills */
+.skills,
+.job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #dbeafe;
+}
+
+
+/* =========================================
+   JOB CARD
+   ========================================= */
+
+.job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 22px 0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.10);
+}
+
+
+/* Job Header */
+.job-header h2 {
+  font-size: 25px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 7px;
+}
+
+.job-info {
+  color: #64748b;
+  font-size: 15px;
+  margin: 0;
+}
+
+
+/* =========================================
+   MATCH SCORE
+   ========================================= */
+
+.match-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.match-section h1 {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 800;
+  color: #2563eb;
+  margin: 0;
+}
+
+.match-section span {
+  font-size: 16px;
+  font-weight: 800;
+  color: #16a34a;
+  letter-spacing: 0.5px;
+}
+
+
+/* Progress Bar */
+.score-container {
+  width: 100%;
+  height: 9px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 18px 0 28px;
+}
+
+.score-progress {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #3b82f6
+  );
+  border-radius: 999px;
+  transition: width 0.7s ease;
+}
+
+
+/* =========================================
+   MATCHED SKILLS
+   ========================================= */
+
+.skills-section {
+  margin-top: 10px;
+}
+
+.skills-section h4 {
+  font-size: 16px;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+
+/* =========================================
+   MISSING SKILLS
+   ========================================= */
+
+.missing-box {
+  margin-top: 20px;
+  padding: 13px 16px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  color: #c2410c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.match-button {
+  margin-top: 22px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.match-button:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.18);
+}
+
+.match-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   MATCH DETAILS
+   ========================================= */
+
+.match-details {
+  margin-top: 22px;
+  padding: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  animation: detailsFadeIn 0.25s ease;
+}
+
+.match-details h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-row span {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.detail-row strong {
+  color: #0f172a;
+  font-size: 15px;
+}
+
+
+/* Details Skills */
+.details-skills {
+  margin-top: 24px;
+}
+
+.details-skills h4,
+.details-missing h4 {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+
+/* Skills to Improve */
+.details-missing {
+  margin-top: 24px;
+}
+
+.details-missing ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.details-missing li {
+  color: #c2410c;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+
+/* =========================================
+   ANIMATION
+   ========================================= */
+
+@keyframes detailsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .home {
+    padding: 25px 16px 60px;
+  }
+
+  .results {
+    margin: 25px auto;
+  }
+
+  .profile-card,
+  .job-card {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .job-header h2 {
+    font-size: 22px;
+  }
+
+  .match-section h1 {
+    font-size: 40px;
+  }
+
+  .match-details {
+    padding: 18px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .match-section {
+    align-items: flex-end;
+  }
+
+  .match-section h1 {
+    font-size: 36px;
+  }
+
+  .match-section span {
+    font-size: 13px;
+  }
+
+  .detail-row {
+    gap: 15px;
+  }
+
+  .detail-row strong {
+    white-space: nowrap;
+  }
+
+  .match-button {
+    width: 100%;
+  }
+
+}
+/* =========================================================
+   AI RESUME JOB MATCHER
+   PORTFOLIO-LEVEL UI
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.home {
+  min-height: 100vh;
+  padding: 60px 24px 100px;
+}
+
+.home > * {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  text-align: center;
+  max-width: 900px !important;
+  margin: 0 auto 55px !important;
+  padding: 70px 30px 60px;
+  overflow: hidden;
+  border-radius: 30px;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(37, 99, 235, 0.10),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(99, 102, 241, 0.10),
+      transparent 35%
+    ),
+    #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.07);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 850;
+  letter-spacing: -2px;
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #2563eb,
+    #4f46e5
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero > p {
+  max-width: 650px;
+  margin: 20px auto 35px;
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   UPLOAD BOX
+   ========================================================= */
+
+.upload-box {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 38px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 22px;
+  background: rgba(248, 250, 252, 0.8);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.upload-box:hover {
+  border-color: #3b82f6;
+  background: #f8fbff;
+  transform: translateY(-2px);
+}
+
+.upload-box button {
+  border: none;
+  border-radius: 12px;
+  padding: 13px 25px;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+  color: white;
+  font-size: 15px;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.22);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.upload-box button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.30);
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.results {
+  max-width: 1050px !important;
+  margin: 0 auto;
+}
+
+.results > h2 {
+  margin: 0 0 30px;
+  font-size: 34px;
+  font-weight: 850;
+  letter-spacing: -0.8px;
+}
+
+
+/* =========================================================
+   PROFILE CARDS
+   ========================================================= */
+
+.profile-card {
+  position: relative;
+  margin-bottom: 22px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.045);
+}
+
+.profile-card h3 {
+  margin: 0 0 20px;
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.profile-card p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.profile-card strong {
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   SKILL PILLS
+   ========================================================= */
+
+.skills,
+.job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.skill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 750;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.skill:hover {
+  background: #dbeafe;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+.profile-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.profile-card li {
+  margin-bottom: 8px;
+  color: #475569;
+}
+
+
+/* =========================================================
+   EXPERIENCE / PROJECTS
+   ========================================================= */
+
+.experience-item,
+.project-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.experience-item:first-child,
+.project-item:first-child {
+  padding-top: 0;
+}
+
+.experience-item:last-child,
+.project-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.experience-item h4,
+.project-item h4 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  color: #0f172a;
+}
+
+.experience-item p,
+.project-item p {
+  margin: 4px 0;
+}
+
+
+/* =========================================================
+   JOB MATCHING SECTION
+   ========================================================= */
+
+.profile-card:has(.job-card) {
+  padding: 32px;
+}
+
+.profile-card > h3 {
+  letter-spacing: -0.2px;
+}
+
+
+/* =========================================================
+   JOB CARD
+   ========================================================= */
+
+.job-card {
+  position: relative;
+  margin: 20px 0;
+  padding: 30px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.job-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5
+  );
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  border-color: #bfdbfe;
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.10);
+}
+
+
+/* =========================================================
+   JOB HEADER
+   ========================================================= */
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.job-header h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.job-info {
+  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   MATCH SCORE
+   ========================================================= */
+
+.match-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.match-section h1 {
+  margin: 0;
+  font-size: clamp(44px, 6vw, 58px);
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -2px;
+  color: #2563eb;
+}
+
+.match-section span {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #ecfdf5;
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   SCORE BAR
+   ========================================================= */
+
+.score-container {
+  width: 100%;
+  height: 9px;
+  margin: 20px 0 28px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.score-progress {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5
+  );
+  transition: width 0.8s cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  );
+}
+
+
+/* =========================================================
+   MATCHED SKILLS
+   ========================================================= */
+
+.skills-section {
+  margin-top: 10px;
+}
+
+.skills-section h4 {
+  margin: 0 0 12px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   MISSING SKILLS
+   ========================================================= */
+
+.missing-box {
+  margin-top: 20px;
+  padding: 13px 16px;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   MATCH BUTTON
+   ========================================================= */
+
+.match-button {
+  margin-top: 23px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 11px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.match-button:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+.match-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   MATCH DETAILS
+   ========================================================= */
+
+.match-details {
+  margin-top: 24px;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 17px;
+  background:
+    linear-gradient(
+      180deg,
+      #f8fafc,
+      #f1f5f9
+    );
+  animation: detailsIn 0.3s ease;
+}
+
+.match-details h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 850;
+  color: #0f172a;
+}
+
+
+/* Score rows */
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 11px 2px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-row span {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.detail-row strong {
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+/* Details skill area */
+.details-skills {
+  margin-top: 25px;
+}
+
+.details-skills h4,
+.details-missing h4 {
+  margin: 0 0 12px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* Skills to improve */
+.details-missing {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.details-missing ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.details-missing li {
+  margin-bottom: 7px;
+  color: #c2410c;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   DETAILS ANIMATION
+   ========================================================= */
+
+@keyframes detailsIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error {
+  margin: 18px auto 0;
+  padding: 12px 16px;
+  max-width: 600px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .home {
+    padding: 30px 16px 70px;
+  }
+
+  .hero {
+    padding: 50px 20px 45px;
+    border-radius: 22px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .hero > p {
+    font-size: 16px;
+  }
+
+  .upload-box {
+    padding: 25px 18px;
+  }
+
+  .results > h2 {
+    font-size: 28px;
+  }
+
+  .profile-card,
+  .job-card {
+    padding: 23px;
+    border-radius: 17px;
+  }
+
+  .job-header h2 {
+    font-size: 22px;
+  }
+
+  .match-section h1 {
+    font-size: 44px;
+  }
+
+  .match-details {
+    padding: 20px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .home {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero > p {
+    font-size: 15px;
+  }
+
+  .profile-card,
+  .job-card {
+    padding: 19px;
+  }
+
+  .match-section {
+    gap: 9px;
+  }
+
+  .match-section h1 {
+    font-size: 38px;
+  }
+
+  .match-section span {
+    font-size: 11px;
+  }
+
+  .match-button {
+    width: 100%;
+  }
+
+  .detail-row {
+    gap: 15px;
+  }
+
+  .detail-row strong {
+    white-space: nowrap;
+  }
+}
+/* =========================================================
+   PORTFOLIO UI — NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  padding: 16px 28px;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.navbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #0f172a;
+  text-decoration: none;
+
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.4px;
+}
+
+.navbar-brand-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.25);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-link {
+  padding: 9px 14px;
+
+  border-radius: 9px;
+
+  color: #64748b;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+
+/* =========================================================
+   UPLOAD AREA
+   ========================================================= */
+
+.upload-box {
+  position: relative;
+
+  max-width: 680px;
+  margin: 0 auto;
+
+  padding: 45px 35px;
+
+  border: 2px dashed #cbd5e1;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(37, 99, 235, 0.06),
+      transparent 60%
+    ),
+    #ffffff;
+
+  text-align: center;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.upload-box:hover {
+  border-color: #60a5fa;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(37, 99, 235, 0.10),
+      transparent 60%
+    ),
+    #ffffff;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 35px rgba(37, 99, 235, 0.08);
+}
+
+
+/* Upload icon */
+
+.upload-box::before {
+  content: "↑";
+
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 27px;
+  font-weight: 800;
+
+  box-shadow:
+    inset 0 0 0 1px #dbeafe;
+}
+
+
+/* Upload title */
+
+.upload-box h2,
+.upload-box h3 {
+  margin: 0 0 8px;
+
+  color: #0f172a;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+
+/* Upload description */
+
+.upload-box p {
+  margin: 7px 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* Choose button */
+
+.upload-box button {
+  margin-top: 18px;
+
+  padding: 13px 24px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.upload-box button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 26px rgba(37, 99, 235, 0.30);
+}
+
+.upload-box button:active {
+  transform: translateY(0);
+}
+
+
+/* Selected file */
+
+.upload-box .selected-file {
+  margin-top: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 13px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  color: #1d4ed8;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   JOB MATCHING HEADER
+   ========================================================= */
+
+.job-matching-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+.job-matching-title {
+  margin: 0;
+
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.job-matching-subtitle {
+  margin: 6px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   JOB RANKING
+   ========================================================= */
+
+.job-ranking {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 15px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-ranking-badge {
+  padding: 5px 9px;
+
+  border-radius: 7px;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+/* Top match */
+
+.job-card:first-of-type {
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 15px 40px rgba(37, 99, 235, 0.10);
+}
+
+.job-card:first-of-type::after {
+  content: "TOP MATCH";
+
+  position: absolute;
+
+  top: 17px;
+  right: 20px;
+
+  padding: 6px 10px;
+
+  border-radius: 8px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* =========================================================
+   JOB SCORE IMPROVEMENT
+   ========================================================= */
+
+.job-score-label {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   MATCH SCORE DETAILS
+   ========================================================= */
+
+.detail-row strong {
+  padding: 5px 9px;
+
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  font-size: 14px;
+}
+
+.details-skills .skill {
+  font-size: 12px;
+  padding: 7px 11px;
+}
+
+
+/* =========================================================
+   IMPROVE SECTION
+   ========================================================= */
+
+.details-missing {
+  margin-top: 22px;
+  padding-top: 20px;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+.details-missing li::marker {
+  color: #f97316;
+}
+
+
+/* =========================================================
+   LOADING STATE
+   ========================================================= */
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 30px;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+
+  border: 3px solid #dbeafe;
+  border-top-color: #2563eb;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 13px 17px;
+  }
+
+  .navbar-brand {
+    font-size: 17px;
+  }
+
+  .navbar-brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .upload-box {
+    padding: 35px 20px;
+  }
+
+  .job-matching-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .job-card:first-of-type::after {
+    position: static;
+
+    display: inline-block;
+
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 12px 14px;
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+  }
+
+  .upload-box {
+    padding: 30px 16px;
+  }
+
+  .upload-box::before {
+    width: 50px;
+    height: 50px;
+  }
+
+  .job-matching-title {
+    font-size: 22px;
+  }
+}

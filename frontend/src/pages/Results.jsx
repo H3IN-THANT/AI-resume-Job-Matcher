@@ -11,6 +11,10 @@ function Results({ data }) {
 
   const profile = data.profile;
 
+  // DEBUG: Check job matching data
+  console.log("RESULT DATA:", data);
+  console.log("MATCHES:", data?.matches);
+
   return (
     <section className="results">
       <h2>Resume Analysis</h2>
@@ -41,16 +45,14 @@ function Results({ data }) {
 
         {profile?.skills?.length > 0 ? (
           <div className="skills">
-            {profile.skills.map(
-              (skill, index) => (
-                <span
-                  className="skill"
-                  key={index}
-                >
-                  {skill}
-                </span>
-              )
-            )}
+            {profile.skills.map((skill, index) => (
+              <span
+                className="skill"
+                key={index}
+              >
+                {skill}
+              </span>
+            ))}
           </div>
         ) : (
           <p>No skills found.</p>
@@ -63,13 +65,11 @@ function Results({ data }) {
 
         {profile?.education?.length > 0 ? (
           <ul>
-            {profile.education.map(
-              (education, index) => (
-                <li key={index}>
-                  {education}
-                </li>
-              )
-            )}
+            {profile.education.map((education, index) => (
+              <li key={index}>
+                {education}
+              </li>
+            ))}
           </ul>
         ) : (
           <p>No education information found.</p>
@@ -82,29 +82,25 @@ function Results({ data }) {
 
         {profile?.experience?.length > 0 ? (
           <div>
-            {profile.experience.map(
-              (experience, index) => (
-                <div
-                  className="experience-item"
-                  key={index}
-                >
-                  <h4>
-                    {experience.role ||
-                      "Unknown Role"}
-                  </h4>
+            {profile.experience.map((experience, index) => (
+              <div
+                className="experience-item"
+                key={index}
+              >
+                <h4>
+                  {experience.role || "Unknown Role"}
+                </h4>
 
-                  <p>
-                    {experience.company ||
-                      "Unknown Company"}
-                  </p>
+                <p>
+                  {experience.company || "Unknown Company"}
+                </p>
 
-                  <p>
-                    {experience.duration ||
-                      "Duration not available"}
-                  </p>
-                </div>
-              )
-            )}
+                <p>
+                  {experience.duration ||
+                    "Duration not available"}
+                </p>
+              </div>
+            ))}
           </div>
         ) : (
           <p>No experience found.</p>
@@ -117,24 +113,21 @@ function Results({ data }) {
 
         {profile?.projects?.length > 0 ? (
           <div>
-            {profile.projects.map(
-              (project, index) => (
-                <div
-                  className="project-item"
-                  key={index}
-                >
-                  <h4>
-                    {project.name ||
-                      "Unnamed Project"}
-                  </h4>
+            {profile.projects.map((project, index) => (
+              <div
+                className="project-item"
+                key={index}
+              >
+                <h4>
+                  {project.name || "Unnamed Project"}
+                </h4>
 
-                  <p>
-                    {project.description ||
-                      "No description available."}
-                  </p>
-                </div>
-              )
-            )}
+                <p>
+                  {project.description ||
+                    "No description available."}
+                </p>
+              </div>
+            ))}
           </div>
         ) : (
           <p>No projects found.</p>
@@ -161,41 +154,84 @@ function Results({ data }) {
       </div>
 
 
-
       {/* ==============================
           JOB MATCHING SECTION
       =============================== */}
 
-      <div className="profile-card">
+      <div
+  className="profile-card"
+  id="results"
+>
 
-        <h3>
-          JOB MATCHING FOR YOUR RESUME
-        </h3>
+  <div className="job-matching-header">
+
+    <div>
+
+      <h3 className="job-matching-title">
+        Job Matches
+      </h3>
+
+      <p className="job-matching-subtitle">
+        Jobs ranked by how well they match your resume.
+      </p>
+
+    </div>
+
+  </div>
 
 
-        {
-          data.matches?.length > 0 ? (
+  {
+    data.matches?.length > 0 ? (
 
-            data.matches.map(
-              (job, index) => (
-                <JobCard
-                  key={index}
-                  job={job}
-                />
-              )
-            )
+      data.matches.map(
+        (job, index) => (
 
-          )
-          :
-          (
-            <p>
-              No job matches found.
-            </p>
-          )
-        }
+          <div key={index}>
 
+            <div className="job-ranking">
+
+              <span>
+                Rank #{index + 1}
+              </span>
+
+              {
+                index === 0 && (
+                  <span className="job-ranking-badge">
+                    Best Match
+                  </span>
+                )
+              }
+
+            </div>
+
+            <JobCard
+              job={job}
+            />
+
+          </div>
+
+        )
+      )
+
+    )
+    :
+    (
+      <div className="no-results">
+
+        <h4>
+          No job matches found
+        </h4>
+
+        <p>
+          Try uploading a resume with more
+          skills and experience information.
+        </p>
 
       </div>
+    )
+  }
+
+</div>
 
 
     </section>

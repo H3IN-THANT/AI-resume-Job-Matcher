@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Python Backend Developer",
+    "company": "Tech Solutions",
+    "location": "Remote",
+    "skills": [
+      "Python",
+      "FastAPI",
+      "REST API",
+      "Git",
+      "SQL",
+      "Docker"
+    ],
+    "experience": "0-2 years",
+    "education": [
+      "Computer Science",
+      "Computer Engineering",
+      "Information Technology"
+    ],
+    "description": "Build and maintain backend APIs using Python and FastAPI."
+  },
+  {
+    "id": 2,
+    "title": "Machine Learning Engineer",
+    "company": "AI Labs",
+    "location": "Remote",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "TensorFlow",
+      "PyTorch",
+      "Pandas",
+      "NumPy",
+      "Git"
+    ],
+    "experience": "0-2 years",
+    "education": [
+      "Computer Science",
+      "Artificial Intelligence",
+      "Data Science"
+    ],
+    "description": "Develop and deploy machine learning models for real-world applications."
+  },
+  {
+    "id": 3,
+    "title": "Data Analyst",
+    "company": "DataWorks",
+    "location": "Hybrid",
+    "skills": [
+      "Python",
+      "SQL",
+      "Pandas",
+      "Excel",
+      "Data Analysis",
+      "Power BI"
+    ],
+    "experience": "0-2 years",
+    "education": [
+      "Computer Science",
+      "Data Science",
+      "Statistics",
+      "Information Technology"
+    ],
+    "description": "Analyze business data and create insights and dashboards."
+  },
+  {
+    "id": 4,
+    "title": "Frontend Developer",
+    "company": "Web Studio",
+    "location": "Remote",
+    "skills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Git",
+      "REST API"
+    ],
+    "experience": "0-2 years",
+    "education": [
+      "Computer Science",
+      "Software Engineering",
+      "Information Technology"
+    ],
+    "description": "Build modern and responsive web applications using React."
+  },
+  {
+    "id": 5,
+    "title": "Full Stack Developer",
+    "company": "Digital Systems",
+    "location": "Remote",
+    "skills": [
+      "Python",
+      "JavaScript",
+      "React",
+      "FastAPI",
+      "SQL",
+      "Git",
+      "REST API"
+    ],
+    "experience": "0-2 years",
+    "education": [
+      "Computer Science",
+      "Software Engineering",
+      "Information Technology"
+    ],
+    "description": "Develop full-stack web applications using modern frontend and backend technologies."
+  }
+]

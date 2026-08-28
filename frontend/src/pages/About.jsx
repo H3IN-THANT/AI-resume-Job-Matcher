@@ -311,7 +311,7 @@ function About() {
             </p>
 
             <span className="version-number">
-              v1.0.0
+              v2.0.0
             </span>
 
           </section>

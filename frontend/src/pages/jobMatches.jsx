@@ -62,13 +62,13 @@ function JobMatches() {
                         <section className="jobs-grid">
                             {jobs.map((job, index) => (
                                 <JobCard
-                                    key={job.id || index}
+                                    key={job.job_id || index}
                                     job={job}
                                     resume={resume}
-                                    isSelected={selectedJob?.id === job.id}
+                                    isSelected={selectedJob?.id === job.job_id}
                                     onViewDetails={(selected) => {
                                         setSelectedJob(
-                                            selectedJob?.id === selected.id
+                                            selectedJob?.job_id === selected.job_id
                                                 ? null
                                                 : selected
                                         );

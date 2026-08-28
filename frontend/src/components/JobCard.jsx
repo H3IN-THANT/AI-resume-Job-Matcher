@@ -7,30 +7,47 @@ function JobCard({ job, resume }) {
     company,
     location,
     match_score,
-    skill_score,
-    experience_score,
-    education_score,
-    keyword_score,
     matched_skills = [],
     missing_skills = [],
+    salary_min,
+    salary_max,
+    source,
+    job_url,
+    contract_time,
   } = job;
 
-  const [showDetails, setShowDetails] =
-    useState(false);
-
+  const [showDetails, setShowDetails] = useState(false);
   const [advice, setAdvice] = useState(null);
+  const [loadingAdvice, setLoadingAdvice] = useState(false);
+  const [error, setError] = useState("");
 
-  const [loadingAdvice, setLoadingAdvice] =
-    useState(false);
+  const score = Number(match_score || 0);
 
-  const [error, setError] =
-    useState("");
+  const formatSalary = () => {
+    if (!salary_min && !salary_max) {
+      return "Not specified";
+    }
+
+    const min = salary_min
+      ? `₹${Number(salary_min).toLocaleString()}`
+      : "";
+
+    const max = salary_max
+      ? `₹${Number(salary_max).toLocaleString()}`
+      : "";
+
+    if (min && max) {
+      return `${min} - ${max}`;
+    }
+
+    return min || max;
+  };
 
   const handleViewDetails = async () => {
     setShowDetails(!showDetails);
 
-    // Don't call Gemini again if advice already exists
-    if (advice) {
+    // Don't request advice again if already loaded
+    if (advice || showDetails) {
       return;
     }
 
@@ -44,14 +61,11 @@ function JobCard({ job, resume }) {
       );
 
       setAdvice(result);
-
     } catch (error) {
       console.error(error);
-
       setError(
-        "Unable to generate AI advice."
+        "Unable to generate AI job advice."
       );
-
     } finally {
       setLoadingAdvice(false);
     }
@@ -60,7 +74,9 @@ function JobCard({ job, resume }) {
   return (
     <article className="job-card">
 
-      {/* Job Header */}
+      {/* -------------------------------- */}
+      {/* Header */}
+      {/* -------------------------------- */}
 
       <div className="job-card-header">
 
@@ -77,43 +93,43 @@ function JobCard({ job, resume }) {
         </div>
 
         <div className="match-score">
-
           <span>
-            {Number(match_score).toFixed(1)}%
+            {score.toFixed(1)}%
           </span>
 
           <small>
             Match
           </small>
-
         </div>
 
       </div>
 
 
+      {/* -------------------------------- */}
       {/* Score Bar */}
+      {/* -------------------------------- */}
 
       <div className="score-bar">
-
         <div
           className="score-bar-fill"
           style={{
             width: `${Math.min(
-              Number(match_score),
+              score,
               100
             )}%`,
           }}
         />
-
       </div>
 
 
+      {/* -------------------------------- */}
       {/* Matching Skills */}
+      {/* -------------------------------- */}
 
       <div className="job-section">
 
         <h4>
-          ✓ Matching Skills
+          Matching Skills
         </h4>
 
         <div className="skill-list">
@@ -140,7 +156,9 @@ function JobCard({ job, resume }) {
       </div>
 
 
+      {/* -------------------------------- */}
       {/* Skill Gaps */}
+      {/* -------------------------------- */}
 
       <div className="job-section">
 
@@ -172,142 +190,222 @@ function JobCard({ job, resume }) {
       </div>
 
 
-      {/* Details Button */}
+      {/* -------------------------------- */}
+      {/* Job Information */}
+      {/* -------------------------------- */}
 
-      <button
-        className="job-details-button"
-        onClick={handleViewDetails}
-      >
-        {showDetails
-          ? "Hide Match Details ↑"
-          : "View Match Details ↓"}
-      </button>
+      <div className="job-info">
+
+        <div>
+          <span>
+            Salary
+          </span>
+
+          <strong>
+            {formatSalary()}
+          </strong>
+        </div>
+
+        <div>
+          <span>
+            Employment
+          </span>
+
+          <strong>
+            {contract_time
+              ? contract_time.replace(
+                  "_",
+                  " "
+                )
+              : "Not specified"}
+          </strong>
+        </div>
+
+        <div>
+          <span>
+            Source
+          </span>
+
+          <strong>
+            {source || "Unknown"}
+          </strong>
+        </div>
+
+      </div>
 
 
-      {/* AI Details */}
+      {/* -------------------------------- */}
+      {/* Actions */}
+      {/* -------------------------------- */}
+
+      <div className="job-card-actions">
+
+        <button
+          className="job-details-button"
+          onClick={handleViewDetails}
+        >
+          {showDetails
+            ? "Hide Match Details"
+            : "View Match Details"}
+        </button>
+
+        {job_url && (
+          <a
+            href={job_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="view-job-button"
+          >
+            View Job ↗
+          </a>
+        )}
+
+      </div>
+
+
+      {/* -------------------------------- */}
+      {/* AI Match Details */}
+      {/* -------------------------------- */}
 
       {showDetails && (
-        <div className="job-ai-details">
+        <div className="job-match-details">
 
-          {loadingAdvice ? (
-            <div className="ai-loading">
+          <h4>
+            AI Match Analysis
+          </h4>
 
-              <span>
-                ✨
-              </span>
+          {loadingAdvice && (
+            <p>
+              Generating AI analysis...
+            </p>
+          )}
 
-              <p>
-                Gemini is analyzing your match...
-              </p>
-
-            </div>
-          ) : error ? (
+          {error && (
             <p className="error">
               {error}
             </p>
-          ) : advice ? (
+          )}
+
+          {advice && (
             <>
 
-              {/* Why You Match */}
+              {advice.why_you_match && (
+                <div className="advice-section">
 
-              <section className="ai-section">
+                  <h5>
+                    Why You Match
+                  </h5>
 
-                <span className="ai-label">
-                  AI INSIGHT
-                </span>
+                  <p>
+                    {advice.why_you_match}
+                  </p>
 
-                <h4>
-                  Why You Match
-                </h4>
-
-                <p>
-                  {advice.why_you_match}
-                </p>
-
-              </section>
-
-
-              {/* Strengths */}
-
-              {advice.strengths?.length > 0 && (
-                <section className="ai-section">
-
-                  <h4>
-                    Your Strengths
-                  </h4>
-
-                  <ul>
-                    {advice.strengths.map(
-                      (strength, index) => (
-                        <li key={index}>
-                          {strength}
-                        </li>
-                      )
-                    )}
-                  </ul>
-
-                </section>
+                </div>
               )}
 
 
-              {/* What To Learn */}
+              {advice.strengths?.length > 0 && (
+                <div className="advice-section">
 
-              <section className="ai-section">
+                  <h5>
+                    Your Strengths
+                  </h5>
 
-                <h4>
-                  What To Learn
-                </h4>
+                  <div className="skill-list">
 
-                <div className="learning-list">
+                    {advice.strengths.map(
+                      (skill, index) => (
+                        <span
+                          className="matched-skill"
+                          key={index}
+                        >
+                          {skill}
+                        </span>
+                      )
+                    )}
 
-                  {advice.what_to_learn?.map(
+                  </div>
+
+                </div>
+              )}
+
+
+              {advice.skill_gaps?.length > 0 && (
+                <div className="advice-section">
+
+                  <h5>
+                    Skills To Improve
+                  </h5>
+
+                  <div className="skill-list">
+
+                    {advice.skill_gaps.map(
+                      (skill, index) => (
+                        <span
+                          className="missing-skill"
+                          key={index}
+                        >
+                          {skill}
+                        </span>
+                      )
+                    )}
+
+                  </div>
+
+                </div>
+              )}
+
+
+              {advice.what_to_learn?.length > 0 && (
+                <div className="advice-section">
+
+                  <h5>
+                    What To Learn
+                  </h5>
+
+                  {advice.what_to_learn.map(
                     (item, index) => (
                       <div
                         className="learning-item"
                         key={index}
                       >
 
-                        <div>
-                          <strong>
-                            {item.skill}
-                          </strong>
+                        <strong>
+                          {item.skill}
+                        </strong>
 
-                          <p>
-                            {item.reason}
-                          </p>
-                        </div>
-
-                        <span
-                          className={`priority priority-${item.priority.toLowerCase()}`}
-                        >
+                        <span>
                           {item.priority}
                         </span>
+
+                        <p>
+                          {item.reason}
+                        </p>
 
                       </div>
                     )
                   )}
 
                 </div>
+              )}
 
-              </section>
 
+              {advice.suggested_project && (
+                <div className="advice-section">
 
-              {/* Suggested Project */}
+                  <h5>
+                    Suggested Project
+                  </h5>
 
-              <section className="ai-section project-advice">
+                  <p>
+                    {advice.suggested_project}
+                  </p>
 
-                <h4>
-                  🚀 Suggested Project
-                </h4>
-
-                <p>
-                  {advice.suggested_project}
-                </p>
-
-              </section>
+                </div>
+              )}
 
             </>
-          ) : null}
+          )}
 
         </div>
       )}

@@ -8,6 +8,7 @@ from app.pdf_extractor import extract_text_from_pdf
 from app.analyzer import analyze_resume
 from app.matcher import match_resume_to_jobs
 from app.advisor import generate_job_advice
+from app.job_api import fetch_jobs
 
 
 app = FastAPI(
@@ -101,15 +102,74 @@ async def match_jobs(
     try:
         profile = request.profile
 
-        # Match resume against all jobs
-        matches = match_resume_to_jobs(profile)
+        # --------------------------------
+        # Build search query from resume
+        # --------------------------------
+
+        skills = profile.get(
+            "skills",
+            []
+        )
+
+        if skills:
+            query = " ".join(
+                skills[:5]
+            )
+        else:
+            query = "software developer"
+
+        print(
+            "JOB SEARCH QUERY:",
+            query
+        )
+
+        # --------------------------------
+        # Fetch real jobs from Adzuna
+        # --------------------------------
+
+        jobs = fetch_jobs(
+            query=query,
+            country="in",
+            results_per_page=20
+        )
+
+        print(
+            "REAL JOBS FOUND:",
+            len(jobs)
+        )
+
+        # --------------------------------
+        # Fallback to jobs.json
+        # --------------------------------
+
+        if not jobs:
+
+            print(
+                "No real jobs found."
+                " Using jobs.json fallback."
+            )
+
+            matches = match_resume_to_jobs(
+                profile
+            )
+
+        else:
+
+            matches = match_resume_to_jobs(
+                profile,
+                jobs
+            )
 
         return {
             "jobs": matches
         }
 
     except Exception as e:
-        print("MATCHING ERROR:", e)
+
+        print(
+            "MATCHING ERROR:",
+            e
+        )
 
         raise HTTPException(
             status_code=500,

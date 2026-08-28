@@ -98,6 +98,37 @@ def normalize_list(items):
         if item
     ]
 
+# -----------------------------
+# Extract skills from job
+# description
+# -----------------------------
+COMMON_SKILLS = [ "python", "java", "javascript", "typescript", "react", "angular", "vue", "node.js", "node", "fastapi", "flask", "django", "rest api", "sql", "mysql", "postgresql", "mongodb", "redis", "docker", "kubernetes", "aws", "azure", "gcp", "git", "github", "linux", "html", "css", "tailwind", "pandas", "numpy", "scikit-learn", "pytorch", "tensorflow", "machine learning", "deep learning", "generative ai", "genai", "llm", "rag", "langchain", "power bi", "excel", "data analysis", ]
+def extract_job_skills(job):
+    """
+    Extract known technical skills
+    from the job description.
+    """
+
+    description = normalize_text(
+        job.get("description", "")
+    )
+
+    title = normalize_text(
+        job.get("title", "")
+    )
+
+    job_text = f"{title} {description}"
+
+    found_skills = []
+
+    for skill in COMMON_SKILLS:
+
+        if skill in job_text:
+            found_skills.append(skill)
+
+    return sorted(
+        set(found_skills)
+    )
 
 # -----------------------------
 # Skill matching
@@ -116,6 +147,10 @@ def calculate_skill_match(resume_profile, job):
             job.get("skills", [])
         )
     )
+
+    if not job_skills:
+        job_skills = set(
+            extract_job_skills(job))
 
     if not job_skills:
         return 0, [], []
@@ -304,6 +339,7 @@ def calculate_match_score(
         resume_profile,
         job
     )
+    job_skills = extract_job_skills(job)
 
     experience_score = (
         calculate_experience_match(
@@ -339,40 +375,94 @@ def calculate_match_score(
     )
 
     return {
-        "job_id": job["id"],
-        "title": job["title"],
-        "company": job["company"],
-        "location": job["location"],
+    "job_id": job.get("id"),
 
-        "match_score": round(
-            final_score,
-            2
-        ),
+    "title": job.get(
+        "title",
+        ""
+    ),
 
-        "skill_score": round(
-            skill_score,
-            2
-        ),
+    "company": job.get(
+        "company",
+        ""
+    ),
 
-        "experience_score": round(
-            experience_score,
-            2
-        ),
+    "location": job.get(
+        "location",
+        ""
+    ),
 
-        "education_score": round(
-            education_score,
-            2
-        ),
+    "description": job.get(
+        "description",
+        ""
+    ),
 
-        "keyword_score": round(
-            keyword_score,
-            2
-        ),
+    "job_url": job.get(
+        "job_url",
+        ""
+    ),
 
-        "matched_skills": matched_skills,
+    "source": job.get(
+        "source",
+        "Unknown"
+    ),
 
-        "missing_skills": missing_skills,
-    }
+    "salary_min": job.get(
+        "salary_min"
+    ),
+
+    "salary_max": job.get(
+        "salary_max"
+    ),
+
+    "salary_predicted": job.get(
+        "salary_predicted"
+    ),
+
+    "contract_type": job.get(
+        "contract_type",
+        ""
+    ),
+
+    "contract_time": job.get(
+        "contract_time",
+        ""
+    ),
+
+    "created": job.get(
+        "created",
+        ""
+    ),
+
+    "match_score": round(
+        final_score,
+        2
+    ),
+
+    "skill_score": round(
+        skill_score,
+        2
+    ),
+
+    "experience_score": round(
+        experience_score,
+        2
+    ),
+
+    "education_score": round(
+        education_score,
+        2
+    ),
+
+    "keyword_score": round(
+        keyword_score,
+        2
+    ),
+    "job_skills" : job_skills,
+    "matched_skills": matched_skills,
+
+    "missing_skills": missing_skills,
+}
 
 
 # -----------------------------
@@ -448,14 +538,20 @@ IMPORTANT RULES:
 # Match resume against all jobs
 # -----------------------------
 
-def match_resume_to_jobs(
-    resume_profile
-):
+def match_resume_to_jobs(resume_profile, jobs=None):
+    """
+    Match a resume against supplied jobs.
+
+    If jobs are not supplied, use jobs.json
+    as fallback data.
+    """
+
+    if jobs is None:
+        jobs = JOBS
 
     results = []
 
-    for job in JOBS:
-
+    for job in jobs:
         result = calculate_match_score(
             resume_profile,
             job

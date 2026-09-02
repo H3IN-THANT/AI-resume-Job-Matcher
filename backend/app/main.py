@@ -10,7 +10,6 @@ from app.matcher import match_resume_to_jobs
 from app.advisor import generate_job_advice
 from app.job_api import fetch_jobs
 
-
 app = FastAPI(
     title="AI Resume Job Matcher API"
 )
